@@ -11,4 +11,4 @@ deleted production files in QA.
 * Eclipse
 * Geany
 2) Replace Servername1 and Directory1 with the **server/computername** and **folder/directory** that you are using.
-3) Compile and run from the IDE or use the commandline: javac QADeleteJobNotify.java 
+3) Compile and run from the IDE or use the commandline: javac QADeleteNotify.java 
