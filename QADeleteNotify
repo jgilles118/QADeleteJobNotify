@@ -1,22 +1,21 @@
 Source Code
  
-/*QA Delete Job Completion Notification
-* This program will detect the log file created by a
- * deleted production files in QA.
-*
- * 
- * 
- * Created by: James Gilles & Akash Jangle
+/* QA Delete Job Completion Notification
+*  This program will detect the log file created by a
+*  deleted production files in QA.
+* 
+* Created by: James Gilles & Akash Jangle
 * Initial start date: August 13, 2019
 * 
- * */
+* */
 import java.io.*;
 import java.util.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
  
 public class QADeleteNotify {
- 
+
+                //Created a function to check a particular filename in a directory.
                 public void findFile(String name,File file)
                     {
                         File[] list = file.listFiles();
@@ -29,38 +28,35 @@ public class QADeleteNotify {
                             }
                             else if (name.equalsIgnoreCase(fil.getName()))
                             {
+                                //Display results of a null search.
                                 System.out.println(fil.getParentFile());
                             }
                         }
                     }
                
-                 
+                 //Java Main
                 public static void main(String[] args) {
                                
-                                //Path to the location of the log file
-                                String otcsadm1qa = "\\\\ServerName1\\Directory1\\log_files\\";
-                               
-                                YearMonth current = YearMonth.now();
-                                String today = current.format(DateTimeFormatter.ofPattern("yyyyMM"));
-                                              
-                                 if(today.charAt(4) == '0') { today = current.format(DateTimeFormatter.ofPattern("yyyyM")); }
+                 //Path to the location of the log file
+                 String otcsadm1qa = "\\\\ServerName1\\Directory1\\log_files\\";
+                 
+                 //Capturing system date.
+                 YearMonth current = YearMonth.now();
+                 String today = current.format(DateTimeFormatter.ofPattern("yyyyMM"));
+                 
+                 //Adjusting date format to company schema.
+                 if(today.charAt(4) == '0') { today = current.format(DateTimeFormatter.ofPattern("yyyyM")); }
         
-         //System.out.println(today);
-       
-         // -------------------------------All good up to here
-       
-         //FindFile ff = new FindFile();
-         Scanner scan = new Scanner(System.in);
-         System.out.println("Enter today's date: " );
-         String todayDate = scan.next();
-         scan.close();
+                 //To execute filename description and current date.
+                 Scanner scan = new Scanner(System.in);
+                 System.out.println("Enter today's date: " );
+                 String todayDate = scan.next();
+                 scan.close();
         
-         String retrieveLog = ServerName1 + today + todayDate + "_QA_Documents_Cleaning.log";
-        // System.out.println("Enter the directory where to search ");
-        // String directory = scan.next();
-        // ff.findFile(name,new File(directory));
-        
-         System.out.println(retrieveLog);
+                 String retrieveLog = ServerName1 + today + todayDate + "_QA_Documents_Cleaning.log";
+                 
+                 //Display results
+                 System.out.println(retrieveLog);
  
  
                 }
